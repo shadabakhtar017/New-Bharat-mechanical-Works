@@ -27,7 +27,7 @@ export const SERVICES_DATA: ServiceCategory[] = [
       "Custom Metal Fabrication"
     ],
     iconName: "Shield",
-    image: "https://images.unsplash.com/photo-1504917595217-d4dc5ebe6122?auto=format&fit=crop&w=800&q=80"
+    image: "/assets/images/metal-fabrication.jpg"
   },
   {
     id: "steel-works",
@@ -44,7 +44,7 @@ export const SERVICES_DATA: ServiceCategory[] = [
       "Mild Steel Door Frames"
     ],
     iconName: "Wrench",
-    image: "/src/assets/images/regenerated_image_1787159018359.jpg"
+    image: "/assets/images/regenerated_image_1787159018359.jpg"
   },
   {
     id: "rolling-shutters",
@@ -59,7 +59,7 @@ export const SERVICES_DATA: ServiceCategory[] = [
       "Custom Shutter Solutions"
     ],
     iconName: "Lock",
-    image: "/src/assets/images/regenerated_image_1787159205260.webp"
+    image: "/assets/images/regenerated_image_1787159205260.webp"
   },
   {
     id: "aluminium-works",
@@ -76,7 +76,7 @@ export const SERVICES_DATA: ServiceCategory[] = [
       "Partition Systems"
     ],
     iconName: "Maximize2",
-    image: "/src/assets/images/regenerated_image_1787159825825.webp"
+    image: "/assets/images/regenerated_image_1787159825825.webp"
   },
   {
     id: "glass-works",
@@ -92,7 +92,7 @@ export const SERVICES_DATA: ServiceCategory[] = [
       "Glass-Based Architectural Solutions"
     ],
     iconName: "Layout",
-    image: "/src/assets/images/regenerated_image_1787159827075.webp"
+    image: "/assets/images/regenerated_image_1787159827075.webp"
   },
   {
     id: "wood-ply-works",
@@ -108,7 +108,7 @@ export const SERVICES_DATA: ServiceCategory[] = [
       "Wood-Based Interior Work"
     ],
     iconName: "Home",
-    image: "/src/assets/images/regenerated_image_1787159940959.jpg"
+    image: "/assets/images/regenerated_image_1787159940959.jpg"
   },
   {
     id: "interior-works",
@@ -125,7 +125,7 @@ export const SERVICES_DATA: ServiceCategory[] = [
       "Decorative Interior Work"
     ],
     iconName: "Sparkles",
-    image: "https://images.unsplash.com/photo-1618221381711-42ca8ab6e908?auto=format&fit=crop&w=800&q=80"
+    image: "/assets/images/interior-works.jpg"
   },
   {
     id: "upvc-works",
@@ -140,7 +140,7 @@ export const SERVICES_DATA: ServiceCategory[] = [
       "UPVC Window Solutions"
     ],
     iconName: "Sun",
-    image: "/src/assets/images/regenerated_image_1787160328604.jpg"
+    image: "/assets/images/regenerated_image_1787160328604.jpg"
   },
   {
     id: "door-frame-solutions",
@@ -155,7 +155,7 @@ export const SERVICES_DATA: ServiceCategory[] = [
       "UPVC Door Frames"
     ],
     iconName: "Key",
-    image: "/src/assets/images/regenerated_image_1787160622209.webp"
+    image: "/assets/images/regenerated_image_1787160622209.webp"
   },
   {
     id: "roof-shade-solutions",
@@ -170,7 +170,7 @@ export const SERVICES_DATA: ServiceCategory[] = [
       "Polycarbonate Sheds"
     ],
     iconName: "CloudRain",
-    image: "/src/assets/images/regenerated_image_1787160767527.jpg"
+    image: "/assets/images/regenerated_image_1787160767527.jpg"
   },
   {
     id: "pvc-solutions",
@@ -184,6 +184,6 @@ export const SERVICES_DATA: ServiceCategory[] = [
       "PVC Partitions"
     ],
     iconName: "Droplet",
-    image: "/src/assets/images/regenerated_image_1787161250075.avif"
+    image: "/assets/images/regenerated_image_1787161250075.avif"
   }
 ];

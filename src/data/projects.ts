@@ -68,7 +68,7 @@ export const PROJECTS_DATA: ProjectItem[] = [
     id: "proj-8",
     title: "Polycarbonate & Steel Roof Canopy",
     category: "Steel Work",
-    image: "https://images.unsplash.com/photo-1541888946425-d0fbb18f86f6?auto=format&fit=crop&w=1000&q=80",
+    image: "/assets/images/regenerated_image_1787160767527.jpg",
     description: "Custom-welded structural steel shed covered with UV-stabilized polycarbonate sheets for all-weather vehicle parking.",
     location: "Residential Society"
   }
