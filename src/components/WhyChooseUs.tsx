@@ -42,52 +42,54 @@ export const WhyChooseUs: React.FC = () => {
   ];
 
   return (
-    <section id="why-us" className="py-24 bg-[#141414] border-t border-[#2A2A2A] relative">
+    <section id="why-us" className="py-24 bg-[#0c1017] border-t border-white/[0.06] relative">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         <div className="text-center max-w-3xl mx-auto mb-16">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 border border-[#C5A059]/40 bg-[#C5A059]/10 text-[#C5A059] text-[10px] font-bold tracking-[0.3em] uppercase mb-4">
-            <ShieldCheck className="w-3.5 h-3.5 text-[#C5A059]" />
+          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full border border-amber-500/30 bg-amber-500/10 backdrop-blur-md text-amber-400 text-[10px] font-bold tracking-[0.25em] uppercase mb-4">
+            <ShieldCheck className="w-3.5 h-3.5 text-amber-400" />
             <span>UNWAVERING RELIABILITY</span>
           </div>
-          <h2 className="text-3xl sm:text-5xl font-bold text-[#F5F5F0] font-['Space_Grotesk'] mb-4">
+          <h2 className="text-3xl sm:text-5xl font-extrabold text-white font-['Space_Grotesk'] mb-4 tracking-tight">
             Why Clients Choose New Bharat Mechanical Works
           </h2>
-          <p className="text-base sm:text-lg text-[#A0A0A0]">
+          <p className="text-base sm:text-lg text-slate-300 font-normal">
             We stand behind our work with uncompromising standards, deep industry experience, and customer-first dedication.
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
           {reasons.map((reason, idx) => {
             const Icon = reason.icon;
             return (
               <div
                 key={idx}
-                className="bg-[#0F0F0F] border border-[#2A2A2A] rounded-lg p-8 hover:border-[#C5A059] transition-all duration-300 hover:shadow-2xl hover:-translate-y-1.5 group flex flex-col justify-between"
+                className="relative bg-white/[0.02] border border-white/[0.08] rounded-2xl p-8 hover:border-amber-500/40 transition-all duration-300 hover:-translate-y-1.5 hover:shadow-2xl hover:bg-white/[0.04] group flex flex-col justify-between backdrop-blur-sm overflow-hidden"
               >
+                <div className="absolute top-0 left-0 right-0 h-[2px] bg-gradient-to-r from-transparent via-transparent to-transparent group-hover:via-amber-500/50 transition-all duration-500" />
+
                 <div>
                   <div className="flex items-center justify-between mb-6">
-                    <div className="w-12 h-12 bg-[#C5A059]/10 border border-[#C5A059]/30 rounded-lg flex items-center justify-center text-[#C5A059] group-hover:bg-[#C5A059] group-hover:text-[#F5F5F0] transition-colors">
+                    <div className="w-12 h-12 rounded-xl bg-amber-500/10 border border-amber-500/30 flex items-center justify-center text-amber-400 group-hover:bg-amber-500 group-hover:text-slate-950 transition-all duration-300 shadow-sm">
                       <Icon className="w-6 h-6" />
                     </div>
-                    <span className="text-3xl font-bold text-[#E4E4E7] font-['Space_Grotesk'] group-hover:text-[#C5A059]/40 transition-colors">
+                    <span className="text-4xl font-extrabold text-white/10 font-['Space_Grotesk'] group-hover:text-amber-400/30 transition-colors">
                       {reason.number}
                     </span>
                   </div>
 
-                  <h3 className="text-xl font-bold text-[#F5F5F0] mb-3 font-['Space_Grotesk'] group-hover:text-[#C5A059] transition-colors">
+                  <h3 className="text-xl font-bold text-white mb-3 font-['Space_Grotesk'] group-hover:text-amber-300 transition-colors">
                     {reason.title}
                   </h3>
 
-                  <p className="text-xs text-[#A0A0A0] leading-relaxed">
+                  <p className="text-xs sm:text-sm text-slate-300 leading-relaxed font-normal">
                     {reason.description}
                   </p>
                 </div>
 
-                <div className="pt-6 mt-6 border-t border-[#2A2A2A] flex items-center gap-2">
-                  <div className="w-1.5 h-1.5 rounded-full bg-[#C5A059]" />
-                  <span className="text-[10px] font-bold uppercase tracking-widest text-[#F5F5F0]">Verified Standard</span>
+                <div className="pt-6 mt-6 border-t border-white/[0.06] flex items-center gap-2">
+                  <div className="w-2 h-2 rounded-full bg-amber-400 shadow-[0_0_8px_rgba(245,158,11,0.6)]" />
+                  <span className="text-[10px] font-bold uppercase tracking-widest text-slate-300">Verified Standard</span>
                 </div>
               </div>
             );
@@ -98,4 +100,3 @@ export const WhyChooseUs: React.FC = () => {
     </section>
   );
 };
-

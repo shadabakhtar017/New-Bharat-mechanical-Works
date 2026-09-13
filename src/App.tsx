@@ -32,7 +32,7 @@ export default function App() {
   };
 
   return (
-    <div className="min-h-screen bg-[#0d0f12] text-[#e2e8f0] font-['Plus_Jakarta_Sans',sans-serif] pb-16 md:pb-0">
+    <div className="min-h-screen bg-[#090c10] text-[#f1f5f9] font-['Plus_Jakarta_Sans',sans-serif] pb-16 md:pb-0 relative selection:bg-amber-500 selection:text-slate-950">
       <Header onNavigate={handleNavigate} onOpenAuth={() => setIsAuthOpen(true)} />
       <main>
         <Hero onExploreServices={() => handleNavigate('services')} />

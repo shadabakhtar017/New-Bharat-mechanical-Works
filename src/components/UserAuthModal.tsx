@@ -105,27 +105,27 @@ export const UserAuthModal: React.FC<UserAuthModalProps> = ({ isOpen, onClose })
   if (!isOpen) return null;
 
   return (
-    <div className="fixed inset-0 z-50 bg-[#0F0F0F]/80 backdrop-blur-sm flex items-center justify-center p-4 overflow-y-auto">
-      <div className="bg-[#141414] border border-[#2A2A2A] w-full max-w-md rounded-none shadow-2xl relative overflow-hidden my-8">
+    <div className="fixed inset-0 z-50 bg-[#090c10]/80 backdrop-blur-xl flex items-center justify-center p-4 overflow-y-auto">
+      <div className="bg-[#0f141c] border border-white/10 w-full max-w-md rounded-3xl shadow-[0_25px_60px_rgba(0,0,0,0.8)] relative overflow-hidden my-8">
         
         {/* Modal Header */}
-        <div className="flex items-center justify-between px-6 py-5 border-b border-[#2A2A2A] bg-[#1a1a1a]">
+        <div className="flex items-center justify-between px-6 sm:px-8 py-5 border-b border-white/[0.08] bg-white/[0.02]">
           <div className="flex items-center gap-3">
-            <div className="w-9 h-9 bg-[#C5A059]/10 border border-[#C5A059]/30 flex items-center justify-center text-[#C5A059]">
+            <div className="w-10 h-10 rounded-xl bg-amber-500/10 border border-amber-500/30 flex items-center justify-center text-amber-400">
               <User className="w-5 h-5" />
             </div>
             <div>
-              <h3 className="text-lg font-bold text-[#F5F5F0] font-['Space_Grotesk'] tracking-tight">
+              <h3 className="text-lg font-bold text-white font-['Space_Grotesk'] tracking-tight">
                 {currentUser ? 'My Account' : isSignUp ? 'Create Account' : 'Sign In'}
               </h3>
-              <p className="text-[10px] uppercase tracking-widest text-[#C5A059]">
+              <p className="text-[10px] uppercase tracking-widest text-amber-400 font-semibold">
                 {currentUser ? 'Client Portal' : 'New Bharat Mechanical Works'}
               </p>
             </div>
           </div>
           <button
             onClick={onClose}
-            className="p-2 text-[#A0A0A0] hover:text-[#F5F5F0] hover:bg-[#E4E4E7] transition-colors cursor-pointer"
+            className="p-2 text-slate-400 hover:text-white hover:bg-white/10 rounded-xl transition-colors cursor-pointer"
             aria-label="Close modal"
           >
             <X className="w-5 h-5" />
@@ -136,23 +136,23 @@ export const UserAuthModal: React.FC<UserAuthModalProps> = ({ isOpen, onClose })
         <div className="p-6 sm:p-8">
           {currentUser ? (
             <div className="space-y-6 text-center py-4">
-              <div className="w-16 h-16 bg-[#C5A059]/10 border border-[#C5A059]/30 rounded-full flex items-center justify-center mx-auto text-[#C5A059]">
+              <div className="w-16 h-16 bg-amber-500/10 border border-amber-500/30 rounded-2xl flex items-center justify-center mx-auto text-amber-400">
                 <User className="w-8 h-8" />
               </div>
               <div>
-                <span className="block text-[10px] uppercase tracking-widest text-[#A0A0A0]">Signed in as</span>
-                <h4 className="text-base font-bold text-[#F5F5F0] mt-1 break-all">{currentUser.email}</h4>
+                <span className="block text-[11px] uppercase tracking-wider text-slate-400">Signed in as</span>
+                <h4 className="text-base font-bold text-white mt-1 break-all">{currentUser.email}</h4>
               </div>
 
               {successMsg && (
-                <div className="p-3 bg-[#C5A059]/15 border border-[#C5A059]/40 text-[#C5A059] text-xs">
+                <div className="p-3.5 bg-amber-500/15 border border-amber-500/30 rounded-xl text-amber-300 text-xs">
                   {successMsg}
                 </div>
               )}
 
               <button
                 onClick={handleLogout}
-                className="w-full bg-red-950/30 border border-red-900/50 text-red-300 py-3 px-6 font-bold text-xs uppercase tracking-widest hover:bg-red-900/40 transition-colors flex items-center justify-center gap-2 cursor-pointer"
+                className="w-full bg-red-950/40 border border-red-900/50 text-red-300 py-3 px-6 rounded-xl font-bold text-xs uppercase tracking-wider hover:bg-red-900/40 transition-colors flex items-center justify-center gap-2 cursor-pointer"
               >
                 <LogOut className="w-4 h-4" />
                 <span>Sign Out</span>
@@ -162,12 +162,12 @@ export const UserAuthModal: React.FC<UserAuthModalProps> = ({ isOpen, onClose })
             <div className="space-y-6">
               
               {/* Tab Toggles */}
-              <div className="grid grid-cols-2 border border-[#2A2A2A] bg-[#0F0F0F] p-1">
+              <div className="grid grid-cols-2 border border-white/10 bg-white/[0.02] p-1 rounded-xl">
                 <button
                   type="button"
                   onClick={() => { setIsSignUp(false); setError(''); setSuccessMsg(''); }}
-                  className={`py-2 text-xs font-bold uppercase tracking-wider transition-colors cursor-pointer ${
-                    !isSignUp ? 'bg-[#C5A059] text-[#F5F5F0]' : 'text-[#A0A0A0] hover:text-[#F5F5F0]'
+                  className={`py-2 text-xs font-bold uppercase tracking-wider transition-all rounded-lg cursor-pointer ${
+                    !isSignUp ? 'bg-gradient-to-r from-amber-500 to-amber-600 text-slate-950 shadow-md' : 'text-slate-400 hover:text-white'
                   }`}
                 >
                   Sign In
@@ -175,8 +175,8 @@ export const UserAuthModal: React.FC<UserAuthModalProps> = ({ isOpen, onClose })
                 <button
                   type="button"
                   onClick={() => { setIsSignUp(true); setError(''); setSuccessMsg(''); }}
-                  className={`py-2 text-xs font-bold uppercase tracking-wider transition-colors cursor-pointer ${
-                    isSignUp ? 'bg-[#C5A059] text-[#F5F5F0]' : 'text-[#A0A0A0] hover:text-[#F5F5F0]'
+                  className={`py-2 text-xs font-bold uppercase tracking-wider transition-all rounded-lg cursor-pointer ${
+                    isSignUp ? 'bg-gradient-to-r from-amber-500 to-amber-600 text-slate-950 shadow-md' : 'text-slate-400 hover:text-white'
                   }`}
                 >
                   Sign Up
@@ -184,50 +184,50 @@ export const UserAuthModal: React.FC<UserAuthModalProps> = ({ isOpen, onClose })
               </div>
 
               {error && (
-                <div className="p-3 bg-red-950/40 border border-red-900/50 text-red-300 text-xs flex items-center gap-2">
+                <div className="p-3.5 bg-red-950/40 border border-red-900/50 rounded-xl text-red-300 text-xs flex items-center gap-2">
                   <AlertCircle className="w-4 h-4 shrink-0" />
                   <span>{error}</span>
                 </div>
               )}
 
               {successMsg && (
-                <div className="p-3 bg-[#C5A059]/15 border border-[#C5A059]/40 text-[#C5A059] text-xs flex items-center gap-2">
-                  <CheckCircle2 className="w-4 h-4 shrink-0" />
+                <div className="p-3.5 bg-amber-500/15 border border-amber-500/30 rounded-xl text-amber-300 text-xs flex items-center gap-2">
+                  <CheckCircle2 className="w-4 h-4 shrink-0 text-amber-400" />
                   <span>{successMsg}</span>
                 </div>
               )}
 
               <form onSubmit={handleAuth} className="space-y-4">
                 <div>
-                  <label className="block text-[10px] font-bold uppercase tracking-widest text-[#A0A0A0] mb-2">
+                  <label className="block text-[11px] font-bold uppercase tracking-wider text-slate-300 mb-2">
                     Email Address *
                   </label>
                   <div className="relative">
-                    <Mail className="w-4 h-4 text-[#A0A0A0] absolute left-3 top-1/2 -translate-y-1/2" />
+                    <Mail className="w-4 h-4 text-slate-400 absolute left-3.5 top-1/2 -translate-y-1/2" />
                     <input
                       type="email"
                       value={email}
                       onChange={(e) => setEmail(e.target.value)}
                       required
                       placeholder="name@example.com"
-                      className="w-full bg-[#0F0F0F] border border-[#2A2A2A] pl-10 pr-4 py-3 text-sm text-[#F5F5F0] focus:outline-none focus:border-[#C5A059]"
+                      className="w-full bg-[#141b26] border border-white/10 rounded-xl pl-10 pr-4 py-3 text-sm text-white placeholder-slate-500 focus:outline-none focus:border-amber-500 transition-all"
                     />
                   </div>
                 </div>
 
                 <div>
-                  <label className="block text-[10px] font-bold uppercase tracking-widest text-[#A0A0A0] mb-2">
+                  <label className="block text-[11px] font-bold uppercase tracking-wider text-slate-300 mb-2">
                     Password *
                   </label>
                   <div className="relative">
-                    <Lock className="w-4 h-4 text-[#A0A0A0] absolute left-3 top-1/2 -translate-y-1/2" />
+                    <Lock className="w-4 h-4 text-slate-400 absolute left-3.5 top-1/2 -translate-y-1/2" />
                     <input
                       type="password"
                       value={password}
                       onChange={(e) => setPassword(e.target.value)}
                       required
                       placeholder="••••••••••••"
-                      className="w-full bg-[#0F0F0F] border border-[#2A2A2A] pl-10 pr-4 py-3 text-sm text-[#F5F5F0] focus:outline-none focus:border-[#C5A059]"
+                      className="w-full bg-[#141b26] border border-white/10 rounded-xl pl-10 pr-4 py-3 text-sm text-white placeholder-slate-500 focus:outline-none focus:border-amber-500 transition-all"
                     />
                   </div>
                 </div>
@@ -235,19 +235,19 @@ export const UserAuthModal: React.FC<UserAuthModalProps> = ({ isOpen, onClose })
                 <button
                   type="submit"
                   disabled={loading}
-                  className="w-full bg-[#C5A059] text-[#F5F5F0] py-3.5 px-6 font-bold text-xs uppercase tracking-widest hover:bg-[#b08c4b] transition-colors flex items-center justify-center gap-2 cursor-pointer disabled:opacity-50 mt-2"
+                  className="w-full bg-gradient-to-r from-amber-500 via-amber-400 to-amber-600 text-slate-950 py-3.5 px-6 rounded-xl font-bold text-xs uppercase tracking-wider hover:shadow-lg hover:shadow-amber-500/25 transition-all flex items-center justify-center gap-2 cursor-pointer disabled:opacity-50 mt-2"
                 >
-                  {loading ? <Loader2 className="w-4 h-4 animate-spin" /> : <User className="w-4 h-4" />}
+                  {loading ? <Loader2 className="w-4 h-4 animate-spin text-slate-950" /> : <User className="w-4 h-4 text-slate-950" />}
                   <span>{isSignUp ? 'Create Account' : 'Sign In'}</span>
                 </button>
               </form>
 
               <div className="relative my-4">
                 <div className="absolute inset-0 flex items-center">
-                  <div className="w-full border-t border-[#2A2A2A]"></div>
+                  <div className="w-full border-t border-white/10"></div>
                 </div>
                 <div className="relative flex justify-center text-xs uppercase">
-                  <span className="bg-[#141414] px-2 text-[#A0A0A0] text-[10px] tracking-widest">Or continue with</span>
+                  <span className="bg-[#0f141c] px-3 text-slate-400 text-[10px] tracking-wider">Or continue with</span>
                 </div>
               </div>
 
@@ -255,7 +255,7 @@ export const UserAuthModal: React.FC<UserAuthModalProps> = ({ isOpen, onClose })
                 type="button"
                 onClick={handleGoogleSignIn}
                 disabled={loading}
-                className="w-full bg-[#1a1a1a] border border-[#2A2A2A] text-[#F5F5F0] py-3 px-6 font-bold text-xs uppercase tracking-widest hover:bg-[#252525] transition-colors flex items-center justify-center gap-3 cursor-pointer disabled:opacity-50"
+                className="w-full bg-white/[0.04] border border-white/10 rounded-xl text-white py-3 px-6 font-semibold text-xs uppercase tracking-wider hover:bg-white/[0.08] transition-all flex items-center justify-center gap-3 cursor-pointer disabled:opacity-50"
               >
                 <svg className="w-4 h-4" viewBox="0 0 24 24">
                   <path
@@ -286,4 +286,3 @@ export const UserAuthModal: React.FC<UserAuthModalProps> = ({ isOpen, onClose })
     </div>
   );
 };
-

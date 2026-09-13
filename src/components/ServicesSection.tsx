@@ -28,19 +28,19 @@ export const ServicesSection: React.FC = () => {
   };
 
   return (
-    <section id="services" className="py-24 bg-[#0F0F0F] relative">
+    <section id="services" className="py-24 bg-[#090c10] relative">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-16">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 border border-[#C5A059]/40 bg-[#C5A059]/10 text-[#C5A059] text-[10px] font-bold tracking-[0.3em] uppercase mb-4">
-            <Wrench className="w-3.5 h-3.5 text-[#C5A059]" />
+          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full border border-amber-500/30 bg-amber-500/10 backdrop-blur-md text-amber-400 text-[10px] font-bold tracking-[0.25em] uppercase mb-4">
+            <Wrench className="w-3.5 h-3.5 text-amber-400" />
             <span>COMPREHENSIVE EXPERTISE</span>
           </div>
-          <h2 className="text-3xl sm:text-5xl font-bold text-[#F5F5F0] font-['Space_Grotesk'] mb-4 tracking-tight">
+          <h2 className="text-3xl sm:text-5xl font-extrabold text-white font-['Space_Grotesk'] mb-4 tracking-tight">
             Everything You Need. Under One Roof.
           </h2>
-          <p className="text-base sm:text-lg text-[#A0A0A0]">
+          <p className="text-base sm:text-lg text-slate-300 font-normal">
             From custom metal fabrication to complete interior and architectural solutions, our team handles a wide range of residential and commercial requirements.
           </p>
         </div>
@@ -54,57 +54,59 @@ export const ServicesSection: React.FC = () => {
             return (
               <div
                 key={service.id}
-                className={`bg-[#141414] border rounded-lg transition-all duration-300 hover:shadow-2xl hover:-translate-y-1.5 flex flex-col justify-between group ${
-                  isExpanded ? 'border-[#C5A059] bg-[#F4F4F5]' : 'border-[#2A2A2A] hover:border-[#C5A059]'
+                className={`rounded-3xl border transition-all duration-300 hover:shadow-2xl hover:-translate-y-1.5 flex flex-col justify-between group overflow-hidden backdrop-blur-sm ${
+                  isExpanded
+                    ? 'border-amber-500/50 bg-white/[0.04] shadow-[0_15px_40px_rgba(0,0,0,0.5)]'
+                    : 'border-white/[0.08] bg-white/[0.02] hover:border-amber-500/40 hover:bg-white/[0.03]'
                 }`}
               >
                 <div>
                   {/* Service Image Banner */}
-                  <div className="relative h-48 overflow-hidden rounded-t-lg border-b border-[#2A2A2A]">
+                  <div className="relative h-52 overflow-hidden border-b border-white/[0.08]">
                     <img
                       src={service.image}
                       alt={service.title}
-                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 opacity-75"
+                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 opacity-80"
                     />
-                    <div className="absolute inset-0 bg-gradient-to-t from-[#FAFAFA] via-transparent to-transparent" />
+                    <div className="absolute inset-0 bg-gradient-to-t from-[#0d121a] via-[#0d121a]/30 to-transparent" />
                     
-                    <div className="absolute top-3 left-3 px-3 py-1 bg-[#0F0F0F]/90 border border-[#2A2A2A] rounded-lg text-[#C5A059] text-[10px] font-bold uppercase tracking-widest">
+                    <div className="absolute top-3.5 left-3.5 px-3 py-1 bg-[#090c10]/80 backdrop-blur-md border border-white/10 rounded-full text-amber-300 text-[10px] font-bold uppercase tracking-wider shadow-sm">
                       {service.badge}
                     </div>
 
-                    <div className="absolute bottom-3 left-4 w-10 h-10 bg-[#C5A059] text-[#F5F5F0] rounded-lg flex items-center justify-center">
+                    <div className="absolute bottom-3.5 left-4 w-11 h-11 rounded-xl bg-gradient-to-br from-amber-500 to-amber-600 text-slate-950 flex items-center justify-center shadow-lg shadow-amber-500/25">
                       <IconComponent className="w-5 h-5" />
                     </div>
                   </div>
 
                   {/* Content Area */}
                   <div className="p-6">
-                    <h3 className="text-xl font-bold text-[#F5F5F0] mb-2 font-['Space_Grotesk'] group-hover:text-[#C5A059] transition-colors">
+                    <h3 className="text-xl font-bold text-white mb-2 font-['Space_Grotesk'] group-hover:text-amber-300 transition-colors">
                       {service.title}
                     </h3>
-                    <p className="text-xs text-[#A0A0A0] leading-relaxed mb-6">
+                    <p className="text-xs sm:text-sm text-slate-300 leading-relaxed mb-6 font-normal">
                       {service.microcopy}
                     </p>
 
                     {/* Services Included Preview / Expand */}
                     <div className="space-y-2 mb-6">
-                      <div className="text-[10px] font-bold text-[#F5F5F0] uppercase tracking-widest mb-2">
+                      <div className="text-[10px] font-bold text-slate-200 uppercase tracking-widest mb-2.5">
                         Included Solutions:
                       </div>
                       <div className="flex flex-wrap gap-1.5">
                         {service.items.slice(0, isExpanded ? service.items.length : 4).map((item, idx) => (
                           <span
                             key={idx}
-                            className="inline-flex items-center gap-1 px-2.5 py-1 bg-[#0F0F0F] border border-[#2A2A2A] rounded-lg text-[11px] text-[#A0A0A0]"
+                            className="inline-flex items-center gap-1.5 px-2.5 py-1.5 bg-white/[0.03] border border-white/[0.07] rounded-lg text-[11px] text-slate-200 font-medium"
                           >
-                            <Check className="w-3 h-3 text-[#C5A059]" />
+                            <Check className="w-3 h-3 text-amber-400" />
                             {item}
                           </span>
                         ))}
                         {service.items.length > 4 && !isExpanded && (
                           <button
                             onClick={() => toggleExpand(service.id)}
-                            className="text-[11px] text-[#C5A059] font-bold uppercase tracking-wider hover:underline px-2 py-1 cursor-pointer inline-flex items-center gap-1 rounded-lg"
+                            className="text-[11px] text-amber-400 font-bold uppercase tracking-wider hover:text-amber-300 px-2 py-1.5 cursor-pointer inline-flex items-center gap-1 rounded-lg transition-colors"
                           >
                             +{service.items.length - 4} more <ChevronDown className="w-3 h-3" />
                           </button>
@@ -115,18 +117,18 @@ export const ServicesSection: React.FC = () => {
                 </div>
 
                 {/* Footer Action */}
-                <div className="p-6 pt-0 border-t border-[#2A2A2A] mt-auto">
+                <div className="p-6 pt-0 border-t border-white/[0.06] mt-auto">
                   <div className="flex items-center justify-between gap-3 pt-4">
                     <button
                       onClick={() => toggleExpand(service.id)}
-                      className="text-[10px] font-bold uppercase tracking-widest text-[#A0A0A0] hover:text-[#F5F5F0] transition-colors cursor-pointer"
+                      className="text-[11px] font-semibold uppercase tracking-wider text-slate-400 hover:text-white transition-colors cursor-pointer"
                     >
                       {isExpanded ? "Show Less" : "View All Items"}
                     </button>
 
                     <button
                       onClick={() => openServiceWhatsApp(service.title)}
-                      className="inline-flex items-center gap-1.5 px-4 py-2 bg-[#C5A059]/15 border border-[#C5A059]/40 rounded-lg text-[#C5A059] hover:bg-[#C5A059] hover:text-[#F5F5F0] text-[10px] font-bold uppercase tracking-wider transition-all duration-300 hover:shadow-2xl hover:-translate-y-1.5 cursor-pointer"
+                      className="inline-flex items-center gap-2 px-4 py-2.5 bg-gradient-to-r from-emerald-500 to-emerald-600 hover:from-emerald-400 hover:to-emerald-500 text-white rounded-xl text-xs font-semibold uppercase tracking-wider shadow-md shadow-emerald-500/20 hover:shadow-emerald-500/35 hover:-translate-y-0.5 active:translate-y-0 transition-all duration-200 cursor-pointer"
                     >
                       <MessageSquare className="w-3.5 h-3.5 fill-current" />
                       <span>WhatsApp Us</span>
@@ -143,4 +145,3 @@ export const ServicesSection: React.FC = () => {
     </section>
   );
 };
-

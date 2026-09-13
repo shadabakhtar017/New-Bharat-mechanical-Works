@@ -1,27 +1,61 @@
 @import "tailwindcss";
 
 @layer base {
+  :root {
+    --bg-primary: #090c10;
+    --bg-surface: #0f141c;
+    --bg-elevated: #161e2b;
+    --accent-gold: #f59e0b;
+    --accent-gold-hover: #d97706;
+  }
+
   body {
     font-family: 'Plus Jakarta Sans', sans-serif;
-    color: #000000;
-    background-color: #000000;
+    color: #f1f5f9;
+    background-color: #090c10;
+    overflow-x: hidden;
   }
+
   h1, h2, h3, h4, h5, h6 {
     font-family: 'Space Grotesk', sans-serif;
+    letter-spacing: -0.02em;
   }
 }
 
 /* Custom scrollbar */
 ::-webkit-scrollbar {
-  width: 6px;
+  width: 7px;
 }
 ::-webkit-scrollbar-track {
-  background: #0F0F0F;
+  background: #090c10;
 }
 ::-webkit-scrollbar-thumb {
-  background: #2A2A2A;
+  background: #1e293b;
+  border-radius: 4px;
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: #C5A059;
+  background: #f59e0b;
 }
 
+/* Glass & Glow Utility Classes */
+.glass-panel {
+  background: rgba(15, 20, 28, 0.75);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.glass-card {
+  background: rgba(16, 22, 32, 0.6);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.07);
+}
+
+.gold-glow {
+  box-shadow: 0 0 35px -5px rgba(245, 158, 11, 0.2);
+}
+
+.gold-glow-sm {
+  box-shadow: 0 0 20px -3px rgba(245, 158, 11, 0.15);
+}
