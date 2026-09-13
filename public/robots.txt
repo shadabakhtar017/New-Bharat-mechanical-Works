@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://newbharatmechanical.com/sitemap.xml
+Sitemap: https://new-bharat-mechanical-works.vercel.app/sitemap.xml
