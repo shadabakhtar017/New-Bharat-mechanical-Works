@@ -1,15 +1,13 @@
 import React, { useState, useEffect } from 'react';
-import { Menu, X, Phone, MessageSquare, User } from 'lucide-react';
+import { Menu, X, Phone, MessageSquare } from 'lucide-react';
 import { BUSINESS_CONFIG } from '../config/businessConfig';
 import { openGeneralWhatsApp } from '../utils/whatsapp';
 
 interface HeaderProps {
   onNavigate: (sectionId: string) => void;
-  onOpenAuth: () => void;
-  currentUser?: any;
 }
 
-export const Header: React.FC<HeaderProps> = ({ onNavigate, onOpenAuth, currentUser }) => {
+export const Header: React.FC<HeaderProps> = ({ onNavigate }) => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
@@ -79,14 +77,6 @@ export const Header: React.FC<HeaderProps> = ({ onNavigate, onOpenAuth, currentU
 
         {/* Right Action Buttons */}
         <div className="hidden md:flex items-center gap-3">
-          <button
-            onClick={onOpenAuth}
-            className="text-xs font-semibold uppercase tracking-wider border border-amber-500/40 bg-amber-500/5 px-4 py-2.5 rounded-xl text-amber-400 hover:bg-amber-500/15 hover:border-amber-400 transition-all duration-200 flex items-center gap-2 cursor-pointer shadow-sm hover:shadow-[0_0_15px_rgba(245,158,11,0.2)]"
-          >
-            <User className="w-3.5 h-3.5" />
-            <span>{currentUser ? 'My Account' : 'Sign In / Sign Up'}</span>
-          </button>
-
           <a
             href={`tel:${BUSINESS_CONFIG.phoneRaw}`}
             className="text-xs font-semibold uppercase tracking-wider border border-white/10 bg-white/[0.03] px-4 py-2.5 rounded-xl text-slate-200 hover:bg-white/[0.08] hover:border-white/20 transition-all duration-200"
@@ -107,17 +97,6 @@ export const Header: React.FC<HeaderProps> = ({ onNavigate, onOpenAuth, currentU
 
         {/* Mobile Hamburger Button */}
         <div className="flex items-center gap-2 lg:hidden">
-          <button
-            onClick={onOpenAuth}
-            className="p-2.5 border border-amber-500/40 bg-amber-500/5 text-amber-400 hover:bg-amber-500/15 transition-colors rounded-xl relative"
-            aria-label="Sign In / Sign Up"
-          >
-            <User className="w-5 h-5" />
-            {currentUser && (
-              <span className="absolute top-1 right-1 w-2 h-2 rounded-full bg-emerald-400" />
-            )}
-          </button>
-
           <button
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
             className="p-2.5 border border-white/10 bg-white/[0.04] text-slate-200 hover:bg-white/[0.08] transition-colors rounded-xl"
@@ -144,14 +123,6 @@ export const Header: React.FC<HeaderProps> = ({ onNavigate, onOpenAuth, currentU
           </div>
 
           <div className="pt-4 border-t border-white/[0.08] flex flex-col gap-3">
-            <button
-              onClick={() => { onOpenAuth(); setMobileMenuOpen(false); }}
-              className="flex items-center justify-center gap-2 px-5 py-3 rounded-xl border border-amber-500/40 bg-amber-500/10 text-xs font-bold uppercase tracking-wider text-amber-400 hover:bg-amber-500/20 transition-all"
-            >
-              <User className="w-4 h-4" />
-              <span>{currentUser ? `My Account (${currentUser.email?.split('@')[0]})` : 'Sign In / Sign Up'}</span>
-            </button>
-
             <a
               href={`tel:${BUSINESS_CONFIG.phoneRaw}`}
               className="flex items-center justify-center gap-2 px-5 py-3 rounded-xl border border-white/10 bg-white/[0.03] text-xs font-bold uppercase tracking-wider text-slate-200 hover:bg-white/[0.06] transition-all"
