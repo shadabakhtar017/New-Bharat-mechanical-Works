@@ -6,9 +6,10 @@ import { openGeneralWhatsApp } from '../utils/whatsapp';
 interface HeaderProps {
   onNavigate: (sectionId: string) => void;
   onOpenAuth: () => void;
+  currentUser?: any;
 }
 
-export const Header: React.FC<HeaderProps> = ({ onNavigate, onOpenAuth }) => {
+export const Header: React.FC<HeaderProps> = ({ onNavigate, onOpenAuth, currentUser }) => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
@@ -83,7 +84,7 @@ export const Header: React.FC<HeaderProps> = ({ onNavigate, onOpenAuth }) => {
             className="text-xs font-semibold uppercase tracking-wider border border-amber-500/40 bg-amber-500/5 px-4 py-2.5 rounded-xl text-amber-400 hover:bg-amber-500/15 hover:border-amber-400 transition-all duration-200 flex items-center gap-2 cursor-pointer shadow-sm hover:shadow-[0_0_15px_rgba(245,158,11,0.2)]"
           >
             <User className="w-3.5 h-3.5" />
-            <span>Sign In / Sign Up</span>
+            <span>{currentUser ? 'My Account' : 'Sign In / Sign Up'}</span>
           </button>
 
           <a
@@ -108,10 +109,13 @@ export const Header: React.FC<HeaderProps> = ({ onNavigate, onOpenAuth }) => {
         <div className="flex items-center gap-2 lg:hidden">
           <button
             onClick={onOpenAuth}
-            className="p-2.5 border border-amber-500/40 bg-amber-500/5 text-amber-400 hover:bg-amber-500/15 transition-colors rounded-xl"
+            className="p-2.5 border border-amber-500/40 bg-amber-500/5 text-amber-400 hover:bg-amber-500/15 transition-colors rounded-xl relative"
             aria-label="Sign In / Sign Up"
           >
             <User className="w-5 h-5" />
+            {currentUser && (
+              <span className="absolute top-1 right-1 w-2 h-2 rounded-full bg-emerald-400" />
+            )}
           </button>
 
           <button
@@ -145,7 +149,7 @@ export const Header: React.FC<HeaderProps> = ({ onNavigate, onOpenAuth }) => {
               className="flex items-center justify-center gap-2 px-5 py-3 rounded-xl border border-amber-500/40 bg-amber-500/10 text-xs font-bold uppercase tracking-wider text-amber-400 hover:bg-amber-500/20 transition-all"
             >
               <User className="w-4 h-4" />
-              <span>Sign In / Sign Up</span>
+              <span>{currentUser ? `My Account (${currentUser.email?.split('@')[0]})` : 'Sign In / Sign Up'}</span>
             </button>
 
             <a

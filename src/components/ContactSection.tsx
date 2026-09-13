@@ -1,11 +1,16 @@
 import React, { useState } from 'react';
 import { BUSINESS_CONFIG } from '../config/businessConfig';
 import { SERVICES_DATA } from '../data/services';
-import { Phone, MessageSquare, MapPin, Mail, Clock, Send, CheckCircle2, Loader2, AlertCircle } from 'lucide-react';
+import { Phone, MessageSquare, MapPin, Mail, Clock, Send, CheckCircle2, Loader2, AlertCircle, Lock, UserCheck } from 'lucide-react';
 import { openGeneralWhatsApp } from '../utils/whatsapp';
 import { supabase } from '../utils/supabase';
 
-export const ContactSection: React.FC = () => {
+interface ContactSectionProps {
+  currentUser?: any;
+  onRequireAuth: (promptMessage?: string) => void;
+}
+
+export const ContactSection: React.FC<ContactSectionProps> = ({ currentUser, onRequireAuth }) => {
   const [formData, setFormData] = useState({
     name: '',
     phone: '',
@@ -27,6 +32,14 @@ export const ContactSection: React.FC = () => {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+
+    // Check if user is signed in
+    if (!currentUser) {
+      setError('You must sign in or create an account before submitting an enquiry.');
+      onRequireAuth('Please sign in or create an account to submit your project enquiry.');
+      return;
+    }
+
     if (!formData.name.trim() || !formData.phone.trim()) {
       setError('Please provide your name and phone number.');
       return;
@@ -45,6 +58,8 @@ export const ContactSection: React.FC = () => {
             phone: formData.phone.trim(),
             service: formData.service,
             details: formData.details.trim() || '',
+            user_id: currentUser?.id || null,
+            user_email: currentUser?.email || null,
             created_at: new Date().toISOString()
           }
         ]);
@@ -173,12 +188,36 @@ export const ContactSection: React.FC = () => {
           {/* Right Column: Interactive Enquiry Form */}
           <div className="lg:col-span-7">
             <div className="bg-white/[0.02] border border-white/[0.08] rounded-3xl p-8 sm:p-10 shadow-2xl backdrop-blur-sm">
-              <h3 className="text-2xl font-bold text-white font-['Space_Grotesk'] mb-2">
-                Send Project Enquiry
-              </h3>
-              <p className="text-xs sm:text-sm text-slate-300 mb-8 font-normal">
+              <div className="flex items-center justify-between mb-2">
+                <h3 className="text-2xl font-bold text-white font-['Space_Grotesk']">
+                  Send Project Enquiry
+                </h3>
+              </div>
+              <p className="text-xs sm:text-sm text-slate-300 mb-6 font-normal">
                 Fill out the form below to submit your project details directly to our secure database.
               </p>
+
+              {/* Authentication Status Banner */}
+              {!currentUser ? (
+                <div className="mb-6 p-4 bg-amber-500/10 border border-amber-500/30 rounded-2xl text-amber-300 text-xs flex items-center justify-between gap-3">
+                  <div className="flex items-center gap-2.5">
+                    <Lock className="w-4 h-4 text-amber-400 shrink-0" />
+                    <span>Please sign in or create an account before submitting your enquiry.</span>
+                  </div>
+                  <button
+                    type="button"
+                    onClick={() => onRequireAuth('Please sign in or create an account to submit your project enquiry.')}
+                    className="px-3.5 py-1.5 bg-gradient-to-r from-amber-500 to-amber-600 text-slate-950 font-bold text-xs uppercase rounded-xl hover:shadow-md cursor-pointer shrink-0 transition-all active:scale-95"
+                  >
+                    Sign In
+                  </button>
+                </div>
+              ) : (
+                <div className="mb-6 p-3.5 bg-emerald-500/10 border border-emerald-500/30 rounded-2xl text-emerald-300 text-xs flex items-center gap-2.5">
+                  <UserCheck className="w-4 h-4 text-emerald-400 shrink-0" />
+                  <span>Signed in as <strong className="text-white">{currentUser.email}</strong>. You are ready to send your enquiry.</span>
+                </div>
+              )}
 
               {submitted && (
                 <div className="mb-6 p-4 bg-amber-500/10 border border-amber-500/30 rounded-2xl text-amber-300 text-xs font-bold uppercase tracking-wider flex items-center gap-3">

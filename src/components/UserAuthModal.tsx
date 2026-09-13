@@ -5,9 +5,10 @@ import { supabase } from '../utils/supabase';
 interface UserAuthModalProps {
   isOpen: boolean;
   onClose: () => void;
+  promptMessage?: string;
 }
 
-export const UserAuthModal: React.FC<UserAuthModalProps> = ({ isOpen, onClose }) => {
+export const UserAuthModal: React.FC<UserAuthModalProps> = ({ isOpen, onClose, promptMessage }) => {
   const [isSignUp, setIsSignUp] = useState(false);
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
@@ -48,9 +49,12 @@ export const UserAuthModal: React.FC<UserAuthModalProps> = ({ isOpen, onClose })
         if (signUpError) {
           setError(signUpError.message);
         } else {
-          setSuccessMsg('Account created successfully! You can now sign in or you are logged in.');
+          setSuccessMsg('Account created successfully! You are now signed in.');
           if (data.session) {
             setCurrentUser(data.session.user);
+            setTimeout(() => {
+              onClose();
+            }, 1200);
           }
         }
       } else {
@@ -66,7 +70,7 @@ export const UserAuthModal: React.FC<UserAuthModalProps> = ({ isOpen, onClose })
           setSuccessMsg('Signed in successfully!');
           setTimeout(() => {
             onClose();
-          }, 1500);
+          }, 1000);
         }
       }
     } catch (err: any) {
@@ -161,6 +165,14 @@ export const UserAuthModal: React.FC<UserAuthModalProps> = ({ isOpen, onClose })
           ) : (
             <div className="space-y-6">
               
+              {/* Optional Prompt Message Banner */}
+              {promptMessage && (
+                <div className="p-3.5 bg-amber-500/15 border border-amber-500/30 rounded-xl text-amber-300 text-xs flex items-center gap-2.5 font-medium leading-relaxed">
+                  <Lock className="w-4 h-4 text-amber-400 shrink-0" />
+                  <span>{promptMessage}</span>
+                </div>
+              )}
+
               {/* Tab Toggles */}
               <div className="grid grid-cols-2 border border-white/10 bg-white/[0.02] p-1 rounded-xl">
                 <button
