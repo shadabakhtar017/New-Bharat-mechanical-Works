@@ -41,15 +41,15 @@ export const Hero: React.FC<HeroProps> = ({ onExploreServices }) => {
 
           {/* Main Heading */}
           <h1 className="text-4xl sm:text-6xl lg:text-7xl font-extrabold text-white tracking-tight leading-[1.08] mb-6 font-['Space_Grotesk']">
-            Built on Craftsmanship.<br />
+            Precision Metal Fabrication &<br />
             <span className="bg-gradient-to-r from-amber-400 via-amber-300 to-amber-500 bg-clip-text text-transparent drop-shadow-[0_2px_15px_rgba(245,158,11,0.3)]">
-              Trusted for Generations.
+              Contracting in Purulia
             </span>
           </h1>
 
           {/* Supporting Line */}
           <p className="text-base sm:text-lg text-slate-300 max-w-2xl leading-relaxed mb-10 font-normal">
-            From precision metal fabrication to complete contracting solutions—New Bharat Mechanical Works delivers quality workmanship built on more than four decades of experience.
+            New Bharat Mechanical Works delivers 43+ years of excellence in precision metal fabrication, mechanical contracting, and general contracting services across Purulia, West Bengal.
           </p>
 
           {/* CTAs */}

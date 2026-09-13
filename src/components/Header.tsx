@@ -52,9 +52,9 @@ export const Header: React.FC<HeaderProps> = ({ onNavigate }) => {
             NB
           </div>
           <div>
-            <h1 className="text-lg font-bold leading-none tracking-tight uppercase text-white group-hover:text-amber-300 transition-colors">
+            <span className="text-lg font-bold leading-none tracking-tight uppercase text-white group-hover:text-amber-300 transition-colors block">
               New Bharat
-            </h1>
+            </span>
             <p className="text-[10px] uppercase tracking-[0.25em] text-amber-400/90 font-semibold mt-1">
               Mechanical Works
             </p>
